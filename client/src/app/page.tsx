@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-import { LogoCITi } from "../assets";
+import { LogoCITi, addIcon } from "../assets";
+import NewButton from "@/components/new-button";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           <strong>&hearts;</strong> by CITi
         </p>
       </div>
+      <NewButton title="Nova Consulta" icon={addIcon}/>
     </div>
   );
 }
