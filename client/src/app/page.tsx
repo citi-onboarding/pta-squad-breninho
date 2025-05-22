@@ -16,7 +16,6 @@ export default function Home() {
           <strong>&hearts;</strong> by CITi
         </p>
       </div>
-      <NewButton title="Nova Consulta" icon={addIcon}/>
     </div>
   );
 }
