@@ -1,3 +1,7 @@
 import LogoCITi from "./Logo.png";
+import addIcon from "./generalIcons/addIcon.png"
 
-export { LogoCITi };
+export { 
+    LogoCITi,
+    addIcon
+ };
