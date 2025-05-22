@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { LogoCITi } from "../assets";
+import Modalcadastro from "@/components/modal-fim-cadastro/index"
 
 export default function Home() {
   return (
