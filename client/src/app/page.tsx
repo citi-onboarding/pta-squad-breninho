@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { LogoCITi, addIcon } from "../assets";
-import NewButton from "@/components/new-button";
 
 export default function Home() {
   return (
