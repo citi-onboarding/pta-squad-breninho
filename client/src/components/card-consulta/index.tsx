@@ -2,22 +2,15 @@ import * as React from "react";
 import Image from "next/image"; // Renderizing the Pet image
 import { PetImage, Alarm } from "@/assets";
 //--
-import { cva } from "class-variance-authority";
+import { cn } from "@/utils";
 
 // Types of Cards
-const cardVariants = cva(
-    "flex flex-row items-center justify-between text-[14px] h-[135px] w-[494.67px] rounded-[16px] py-[16px] px-[24px] gap-[33.36px] font-[SF Pro Display] bg-[#F0F0F0]",
-    {
-        variants: {
-            cardColor: {
-                "Primeira Consulta": "bg-[#BFB5FF]",
-                "Check Up": "bg-[#9CFF95]",
-                "Retorno": "bg-[#FF641999]",
-                "Vacinação": "bg-[#FF641999]"
-            }
-        }
-    }
-);
+const cardColors = {
+    "Primeira Consulta": "bg-[#BFB5FF]",
+    "Check-up": "bg-[#9CFF95]",
+    "Retorno": "bg-[#FF641999]",
+    "Vacinação": "bg-[#FF641999]"
+}
 
 // Types of inputs
 interface CardProps{
@@ -26,14 +19,14 @@ interface CardProps{
     nameOwner: string,
     namePet: string,
     nameDoctor: string,
-    textStatus: "Primeira Consulta" | "Check Up" | "Retorno" | "Vacinação"
+    status: "Primeira Consulta" | "Check-up" | "Retorno" | "Vacinação"
 }
 
-const CardConsulta = ({date, time, nameOwner, namePet, nameDoctor, textStatus}: CardProps) => {
-
+const CardConsulta = ({date, time, nameOwner, namePet, nameDoctor, status}: CardProps) => {
+    let thisCardColor = cardColors[status];
     return(
         // Card info container
-        <div className={cardVariants({cardColor: textStatus})}>
+        <div className={cn( "flex flex-row items-center justify-between text-[14px] h-[135px] w-[494.67px] rounded-[16px] py-[16px] px-[24px] gap-[33.36px] font-[SF Pro Display] bg-[#F0F0F0]", thisCardColor)}>
             {/* Entry time infos of the Pet in system*/}
             <div className="flex flex-col justify-center items-center h-[90px] w-[51px] rounded-[4px] pt-[12px] pb-[12px] px-[6px] gap-[8px] bg-[#FFFFFFCC]">
                 <Image src={Alarm} alt="alarm-icon"></Image>
@@ -47,7 +40,7 @@ const CardConsulta = ({date, time, nameOwner, namePet, nameDoctor, textStatus}: 
             <div className="flex flex-col items-center justify-center h-[103px] w-[101px] gap-[8px]">
                 <Image className="h-[70px] w-[69px]" src={PetImage} alt="Pet Image"></Image>
                 <div className="flex flex-row items-center justify-center h-[25px] w-[101px] rounded-[4px] gap-[8px] bg-[#FFFFFFCC]">
-                    <p className="text-center leading-[110.00000000000001%] tracking-[0%] text-[12px]">{textStatus}</p>
+                    <p className="text-center leading-[110.00000000000001%] tracking-[0%] text-[12px]">{status}</p>
                 </div>
             </div>
         </div>
