@@ -1,14 +1,14 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
-interface tipos_das_informacoes {
+interface tiposInformacoes {
   date: string;
   time: string;
   typeOfConsultation: string;
   doctor: string;
 }
 
-const Card_Historico_de_Consulta: React.FC <tipos_das_informacoes> = ({ date, time, typeOfConsultation, doctor }) => {
+const CardHistoricoConsulta: React.FC <tiposInformacoes> = ({ date, time, typeOfConsultation, doctor }) => {
     return (
     <div className="flex items-center justify-between bg-[#F0F0F0] rounded-xl w-[510px] h-[82px] gap-[61px] py-[16px] px-[24px] text-[14px]">
         <div className="bg-white p-4 rounded-md text-center w-[51px] h-[50px] shadow-sm flex flex-col items-center justify-center">
@@ -26,4 +26,4 @@ const Card_Historico_de_Consulta: React.FC <tipos_das_informacoes> = ({ date, ti
   );
 };
 
-export default Card_Historico_de_Consulta;
+export default CardHistoricoConsulta;
