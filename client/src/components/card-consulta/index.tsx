@@ -9,7 +9,7 @@ const cardColors = {
     "Primeira Consulta": "bg-[#BFB5FF]",
     "Check-up": "bg-[#9CFF95]",
     "Retorno": "bg-[#FF641999]",
-    "Vacinação": "bg-[#FF641999]"
+    "Vacinação": "bg-[#AAE1FF]"
 }
 
 // Types of inputs
