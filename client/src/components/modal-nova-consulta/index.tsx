@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Cross2Icon } from "@radix-ui/react-icons"
+import { Cross2Icon, ChevronDownIcon, CalendarIcon, ClockIcon} from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { LogoCITiPet } from "@/assets";
@@ -9,7 +9,7 @@ function ModalNovaConsulta() {
         // Container do Modal
         <div>
             {/* Container das infos do card */}
-            <div className="flex flex-col h-[493px] min-w-[824px] bg-[#FFFFFF] rounded-[24px] p-[48px] gap-[29px] items-center font-[SF Pro Display]">
+            <div className="flex flex-col h-[493px] w-[824px] bg-[#FFFFFF] rounded-[24px] p-[48px] gap-[29px] items-center font-[SF Pro Display]">
 
                 {/* Conteúdo*/}
 
@@ -17,7 +17,7 @@ function ModalNovaConsulta() {
                 <div className="w-full flex flex-row justify-between">
                     <Image className="mx-auto" src={LogoCITiPet} alt="logo" />
                     <Button className="h-[24px] w-[24px]" size="icon" variant="ghost">
-                        <Cross2Icon></Cross2Icon>
+                        <Cross2Icon/>
                     </Button>
                 </div>
 
@@ -27,19 +27,24 @@ function ModalNovaConsulta() {
 
                 {/* Inputs de dados da consulta em grid */}
                 <div className="grid grid-cols-2 text-[16px] gap-[12px]">
-                    {/*Linha 1 = Elem 1 - Tipo de consulta */}
+                    {/*Linha 1 = Elem 1 - Tipo de consulta - Relativo*/}
                     <div className="flex flex-col gap-[12px]">
                         <p>
                             <b>Tipo de consulta</b>
                         </p>
 
-                        {/* Input de tipo de consulta - Lista de itens selecionáveis*/}
-                        <select className="h-[50px] min-w-[358px] border border-[#101010] rounded-[8px] px-[16px]">
-                            <option value="" disabled selected>Selecione aqui</option>
-                            <option value="loremimpsum">Consulta</option>
-                            <option value="loremimpsum">Exame</option>
-                            <option value="loremimpsum">Vacina</option>
-                        </select>
+                        <div className="relative">
+                            <style>{`select:invalid { color: #D9D9D9; } select option {color: black}`}</style>
+                            <select required className="appearance-none h-[50px] w-[358px] border border-[#101010] rounded-[8px] px-[16px] text-[16px] ">
+                                <option value="" disabled selected hidden>Selecione aqui</option>
+                                <option value="0">Consulta</option>
+                                <option value="1">Exame</option>
+                                <option value="2">Vacina</option>
+                            </select>
+                            <div className="absolute right-[16px] top-1/2 -translate-y-1/2 pointer-events-none">
+                                <ChevronDownIcon className="w-[24px] h-[24px] text-[#101010]" />
+                            </div>
+                        </div>
                     </div>
                     
                     {/*Linha 1 = Elem 2 - Médico Responsável - Texto */}
@@ -47,8 +52,9 @@ function ModalNovaConsulta() {
                         <p>
                             <b>Médico Responsável</b>
                         </p>
+                        
                         {/* Input de nome - texto */}
-                        <input type="text" placeholder="Digite aqui..." className="h-[50px] min-w-[358px] border border-[#101010] rounded-[8px] p-[16px]" />
+                        <input type="text" placeholder="Digite aqui..." className="h-[50px] w-[358px] border border-[#101010] rounded-[8px] p-[16px] placeholder:text-[#D9D9D9]" />
                     </div>
 
                     {/*Linha 2 = Elem 1 - Data do atendimento */}
@@ -56,8 +62,15 @@ function ModalNovaConsulta() {
                         <p>
                             <b>Data do atendimento</b>
                         </p>
-                        {/* Input de data - Calendário */}
-                        <input type="date" className="h-[50px] min-w-[358px] border border-[#101010] rounded-[8px] p-[16px]" />
+
+                        {/* Input de data - Calendário - Relativo */}
+                        <div className="relative">
+                            <input type="text" placeholder="dd/mm/aa" className="appearance-none h-[50px] w-[358px] border border-[#101010] rounded-[8px] p-[16px] placeholder:text-[#D9D9D9]" />
+                            <div className="absolute right-[16px] top-1/2 -translate-y-1/2 pointer-events-none">
+                                <CalendarIcon className="w-[24px] h-[24px] text-[#101010]" />
+                            </div>
+                        </div>
+
                     </div>
 
                     {/*Linha 2 = Elem 2 - Horário do atendimento */}
@@ -65,14 +78,20 @@ function ModalNovaConsulta() {
                         <p>
                             <b>Horário do atendimento</b>
                         </p>
-                        {/* Input de horário - Seleção de horário */}
-                        <input type="time" className="h-[50px] min-w-[358px] border border-[#101010] rounded-[8px] p-[16px]" />
+
+                        {/* Input de horário - Seleção de horário - Relativo */}
+                        <div className="relative">
+                            <input type="text" placeholder="00:00" className="appearance-none h-[50px] w-[358px] border border-[#101010] rounded-[8px] p-[16px] placeholder:text-[#D9D9D9]" />
+                            <div className="absolute right-[16px] top-1/2 -translate-y-1/2 pointer-events-none">
+                                <ClockIcon className="w-[24px] h-[24px] text-[#101010]" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 {/* Botão para finalizar consulta */}
-                <Button className="h-[42px] w-[728px] bg-[#50E678] rounded-[24px] shadow-[0 4px 4px #0000001A] px-[32px] py-[12px] gap-[10px]">
-                    Finalizar Consulta
+                <Button className="h-[42px] w-[728px] bg-[#50E678] rounded-[24px] shadow-[0 4px 4px #0000001A] px-[32px] py-[12px] gap-[10px] text-[16px]">
+                    Finalizar Cadastro
                 </Button>
             </div>
         </div>
