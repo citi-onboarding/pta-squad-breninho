@@ -1,9 +1,7 @@
-import { CalendarIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+import { ChevronLeftIcon, CalendarIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import TopBar from "@/components/top-bar"
 import CardConsulta from "@/components/card-consulta";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowBack, CalendarMonth, PlusCircled } from "@/assets";
 
 const PageAtendimento = () => {
     return(
@@ -13,9 +11,8 @@ const PageAtendimento = () => {
             <section className="flex flex-col justify-center pt-[48px] pb-[76px] px-[194px] gap-[32px]">
                 {/* Call back page Atendimento */}
                 <div className="flex flex-row items-center h-[53px] w-[365px] gap-[16px]">
-                    <button className="hover:skew-3 h-[32px] w-[32px]">
-                        <Image src={ArrowBack} alt="Arrow Back"> 
-                        </Image>
+                    <button className="hover:scale-[120%] hover:skew-3">
+                        <ChevronLeftIcon className="h-[32px] w-[32px]"></ChevronLeftIcon>
                     </button>
                     <p className="text-[48px] font-bold">Atendimento</p>
                 </div>
@@ -24,7 +21,7 @@ const PageAtendimento = () => {
                     <p className="text-[24px] font-normal leading-[110.00000000000001%]">Qual é o médico?</p>
                     <div className="flex flex-row items-center h-[50x] w-[660px] gap-[24px]">
                         <input className="h-[50px] w-[520px] rounded-[8px] border-[#101010] border-[1px] p-[16px] gap-[16px]" type="text" placeholder="Pesquise aqui..."/>
-                        <Button className="h-[42px] w-[116px] rounded-[24px] py-[12px] px-[32px] bg-[#7D1AD7] hover:bg-[#7D1AD7]">Buscar</Button>
+                        <Button className="h-[42px] w-[116px] rounded-[24px] py-[12px] px-[32px] bg-[#7D1AD7]">Buscar</Button>
                     </div>
                 </div>
                 {/* Organizer components */}
@@ -36,11 +33,11 @@ const PageAtendimento = () => {
                     <div className="flex flex-row h-[56px] w-[268px] gap-[16px]">
                         <Button className="flex flex-row items-center justify-center h-[56px] w-[126px] bg-white border-[1px] border-[#D9D9D9] gap-[8px] py-[16px] px-[12px] rounded-[8px] text-[#101010] text-[16px] font-normal hover:bg-[#D9D9D9]">
                             <p>dd/mm/aa</p>
-                            <Image src={CalendarMonth} alt="Calendar Icon"></Image>
+                            <CalendarIcon></CalendarIcon>
                         </Button>
                         <Button className="flex flex-row items-center justify-center h-[56px] w-[126px] bg-white border-[1px] border-[#D9D9D9] gap-[8px] py-[16px] px-[12px] rounded-[8px] text-[#101010] text-[16px] font-normal hover:bg-[#D9D9D9]">
                             <p>dd/mm/aa</p>
-                            <Image src={CalendarMonth} alt="Calendar Icon"></Image>
+                            <CalendarIcon></CalendarIcon>
                         </Button>
                     </div>
                 </div>
@@ -59,8 +56,8 @@ const PageAtendimento = () => {
                 </div>
                 {/* New Consults Button */}
                 <div className="flex justify-end w-full mt-[153px]">
-                    <Button className="h-[48px] w-[205px] bg-[#50E678] rounded-[24px] py-[12px] px-[32px] gap-[10px] shadow-[0 4px 4px #0000001A] hover:bg-[#50E678]/80">
-                        <Image src={PlusCircled} alt="Plus Circled Icon"></Image>
+                    <Button className="h-[48px] w-[205px] bg-[#50E678] rounded-[24px] py-[12px] px-[32px] gap-[10px] shadow-[0 4px 4px #0000001A]">
+                        <PlusCircledIcon></PlusCircledIcon>
                         Nova Consulta
                     </Button>
                 </div>
