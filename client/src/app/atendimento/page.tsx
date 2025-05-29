@@ -5,14 +5,16 @@ import { Button } from "@/components/ui/button";
 
 const PageAtendimento = () => {
     return(
-        <body>
+        <body className="flex flex-col items-center">
             {/* Top bar */}
             <TopBar></TopBar>
-            <section className="flex flex-col justify-center pt-[48px] pr-[194px] pb-[76px] pl-[194px] gap-[32px]">
+            <section className="flex flex-col justify-center pt-[48px] pb-[76px] px-[194px] gap-[32px]">
                 {/* Call back page Atendimento */}
                 <div className="flex flex-row items-center h-[53px] w-[365px] gap-[16px]">
-                    <ChevronLeftIcon className="h-[32px] w-[32px]"></ChevronLeftIcon>
-                    <p className="text-[48px] font-bold font-[Source Code Pro]">Atendimento</p>
+                    <button className="hover:scale-[120%] hover:skew-3">
+                        <ChevronLeftIcon className="h-[32px] w-[32px]"></ChevronLeftIcon>
+                    </button>
+                    <p className="text-[48px] font-bold">Atendimento</p>
                 </div>
                 {/* Search components */}
                 <div className="flex flex-col gap-[24px]">
@@ -25,15 +27,15 @@ const PageAtendimento = () => {
                 {/* Organizer components */}
                 <div className="flex flex-row justify-between">
                     <div className="flex flex-row items-center justify-center h-[58px] w-[243px] rounded-[12px] p-[8px] gap-[8px] bg-[#F0F0F0] ">
-                        <Button variant="link" className="flex items-center justify-center h-[42px] w-[92px] rounded-[8px] bg-white text-[#101010] text-[16px] font-normal"><p>Histórico</p></Button>
-                        <Button variant="link" className="flex items-center justify-center h-[42px] w-[127px] text-[#101010] text-[16px] font-normal"><p>Agendamento</p></Button>
+                        <Button variant="link" className="flex items-center justify-center h-[42px] w-[92px] rounded-[8px] bg-white text-[#101010] text-[16px] font-normal hover:no-underline hover:bg-[#D9D9D9]"><p>Histórico</p></Button>
+                        <Button variant="link" className="flex items-center justify-center h-[42px] w-[127px] text-[#101010] text-[16px] font-normal hover:no-underline hover:bg-[#D9D9D9]"><p>Agendamento</p></Button>
                     </div>
                     <div className="flex flex-row h-[56px] w-[268px] gap-[16px]">
-                        <Button className="flex flex-row items-center justify-center h-[56px] w-[126px] bg-white border-[1px] border-[#D9D9D9] gap-[8px] py-[16px] px-[12px] rounded-[8px] text-[#101010] text-[16px] font-normal">
+                        <Button className="flex flex-row items-center justify-center h-[56px] w-[126px] bg-white border-[1px] border-[#D9D9D9] gap-[8px] py-[16px] px-[12px] rounded-[8px] text-[#101010] text-[16px] font-normal hover:bg-[#D9D9D9]">
                             <p>dd/mm/aa</p>
                             <CalendarIcon></CalendarIcon>
                         </Button>
-                        <Button className="flex flex-row items-center justify-center h-[56px] w-[126px] bg-white border-[1px] border-[#D9D9D9] gap-[8px] py-[16px] px-[12px] rounded-[8px] text-[#101010] text-[16px] font-normal">
+                        <Button className="flex flex-row items-center justify-center h-[56px] w-[126px] bg-white border-[1px] border-[#D9D9D9] gap-[8px] py-[16px] px-[12px] rounded-[8px] text-[#101010] text-[16px] font-normal hover:bg-[#D9D9D9]">
                             <p>dd/mm/aa</p>
                             <CalendarIcon></CalendarIcon>
                         </Button>
@@ -64,4 +66,4 @@ const PageAtendimento = () => {
     )
 };
 
-export default PageAtendimento;
+export default PageAtendimento; 
