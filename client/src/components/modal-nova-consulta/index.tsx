@@ -34,10 +34,10 @@ function ModalNovaConsulta() {
 
                         <div className="relative">
                             <style>{`select:invalid { color: #D9D9D9; } select option {color: black}`}</style>
-                            <select required className="appearance-none h-[50px] w-[358px] border border-[#101010] rounded-[8px] px-[16px] text-[16px] ">
+                            <select required className="appearance-none h-[50px] w-[358px] border border-[#101010] rounded-[8px] px-[16px] text-[16px] bg-white ">
                                 <option value="" disabled selected hidden>Selecione aqui</option>
                                 <option value="0">Consulta</option>
-                                <option value="1">Exame</option>
+                                <option value="1">Exame</option>    
                                 <option value="2">Vacina</option>
                             </select>
                             <div className="absolute right-[16px] top-1/2 -translate-y-1/2 pointer-events-none">
