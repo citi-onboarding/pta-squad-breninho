@@ -9,5 +9,8 @@ import finalTopBar from "./finalTopBar.png"
 import PetImage from "./Pet-example.png"
 import Alarm from "./Alarm-icon.png"
 // --
+import ArrowBack from "./ArrowBackIosNew.svg"
+import CalendarMonth from "./CalendarMonth.svg"
+import PlusCircled from "./PlusCircle.svg"
 
-export { LogoCITi, LogoCITiPet, BotaoClose, addIcon, finalTopBar, PetImage, Alarm};
+export { LogoCITi, LogoCITiPet, BotaoClose, addIcon, finalTopBar, PetImage, Alarm, ArrowBack, CalendarMonth, PlusCircled};
