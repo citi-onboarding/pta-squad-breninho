@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Cross2Icon, ChevronDownIcon, CalendarIcon, ClockIcon} from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { LogoCITiPet } from "@/assets";
+import { LogoCITiPet, alarmIcon, calendarIcon, BotaoClose, downArrowIcon } from "@/assets";
 
 function ModalNovaConsulta() {
     return (
@@ -17,7 +16,7 @@ function ModalNovaConsulta() {
                 <div className="w-full flex flex-row justify-between">
                     <Image className="mx-auto" src={LogoCITiPet} alt="logo" />
                     <Button className="h-[24px] w-[24px]" size="icon" variant="ghost">
-                        <Cross2Icon/>
+                        <Image src={BotaoClose} alt="Close Icon"/>
                     </Button>
                 </div>
 
@@ -42,7 +41,7 @@ function ModalNovaConsulta() {
                                 <option value="2">Vacina</option>
                             </select>
                             <div className="absolute right-[16px] top-1/2 -translate-y-1/2 pointer-events-none">
-                                <ChevronDownIcon className="w-[24px] h-[24px] text-[#101010]" />
+                                <Image src={downArrowIcon} alt="Down Arrow Icon"/>
                             </div>
                         </div>
                     </div>
@@ -67,7 +66,7 @@ function ModalNovaConsulta() {
                         <div className="relative">
                             <input type="text" placeholder="dd/mm/aa" className="appearance-none h-[50px] w-[358px] border border-[#101010] rounded-[8px] p-[16px] placeholder:text-[#D9D9D9]" />
                             <div className="absolute right-[16px] top-1/2 -translate-y-1/2 pointer-events-none">
-                                <CalendarIcon className="w-[24px] h-[24px] text-[#101010]" />
+                                <Image src={calendarIcon} alt="Calendar Icon"/>
                             </div>
                         </div>
 
@@ -83,7 +82,7 @@ function ModalNovaConsulta() {
                         <div className="relative">
                             <input type="text" placeholder="00:00" className="appearance-none h-[50px] w-[358px] border border-[#101010] rounded-[8px] p-[16px] placeholder:text-[#D9D9D9]" />
                             <div className="absolute right-[16px] top-1/2 -translate-y-1/2 pointer-events-none">
-                                <ClockIcon className="w-[24px] h-[24px] text-[#101010]" />
+                                <Image src={alarmIcon} alt="Clock Icon"/>
                             </div>
                         </div>
                     </div>
