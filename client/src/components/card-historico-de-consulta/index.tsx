@@ -1,5 +1,6 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Arrow } from "@/assets";
 
 interface tiposInformacoes {
   date: string;
@@ -20,7 +21,7 @@ const CardHistoricoConsulta: React.FC <tiposInformacoes> = ({ date, time, typeOf
         <div className="w-[90px] whitespace-nowrap">{doctor}</div>
         
         <button className="w-[24px] h-[24px] flex items-center justify-center">
-            <ArrowRight/>
+          <Image src={Arrow} alt="Seta"/>
         </button>
     </div>
   );
