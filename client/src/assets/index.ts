@@ -17,5 +17,11 @@ import alarmIcon from "./alarmIcon.png";
 import PetImage from "./Pet-example.png"
 import Alarm from "./Alarm-icon.png"
 // --
+// Utilized in component page "atendimento"
+import ArrowBack from "./ArrowBackIosNew.svg"
+import CalendarMonth from "./CalendarMonth.svg"
+import PlusCircled from "./PlusCircle.svg"
+// --
 
-export { LogoCITi, LogoCITiPet, BotaoClose, addIcon, finalTopBar, PetImage, downArrowIcon, Alarm, calendarIcon, alarmIcon };
+export { LogoCITi, LogoCITiPet, BotaoClose, addIcon, finalTopBar, PetImage, Alarm, ArrowBack, CalendarMonth, PlusCircled, alarmIcon, downArrowIcon, calendarIcon};
+
