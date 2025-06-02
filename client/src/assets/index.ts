@@ -13,15 +13,22 @@ import calendarIcon from "./calendarIcon.png";
 import alarmIcon from "./alarmIcon.png";
 //--
 
-// Utilized in component "Card-Consulta"
-import PetImage from "./Pet-example.png"
+// Utilized in component of type: cards
+import Cat from "./cat.svg"
+import Dog from "./dog.svg"
+import Cow from "./cow.svg"
+import Pig from "./pig.svg"
+import Sheep from "./sheep.svg"
+import Horse from "./horse.svg"
 import Alarm from "./Alarm-icon.png"
+import Arrow from "./arrow.svg"
 // --
-// Utilized in component page "atendimento"
+// Utilized in pages and modal
 import ArrowBack from "./ArrowBackIosNew.svg"
 import CalendarMonth from "./CalendarMonth.svg"
 import PlusCircled from "./PlusCircle.svg"
+import TreatmentIcon from "./treatment-icon.svg"
 // --
 
-export { LogoCITi, LogoCITiPet, BotaoClose, addIcon, finalTopBar, PetImage, Alarm, ArrowBack, CalendarMonth, PlusCircled, alarmIcon, downArrowIcon, calendarIcon};
+export { LogoCITi, LogoCITiPet, BotaoClose, addIcon, finalTopBar, Cat, Dog, Cow, Pig, Sheep, Horse, Alarm, ArrowBack, Arrow, CalendarMonth, PlusCircled, alarmIcon, downArrowIcon, calendarIcon, TreatmentIcon, };
 
