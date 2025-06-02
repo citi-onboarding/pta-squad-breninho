@@ -215,7 +215,7 @@ const PageCadastro = () => {
 
             {/* Descrição do Problema */}
             <div>
-              <label className="block font-bold mb-3">Descrição do Problema</label>
+              <label className="block font-bold mb-3">Descrição do Problema </label>
               <textarea className="w-full h-[104px] border border-black rounded-lg px-4 py-2"
                 name="descricao"
                 value={formData.descricao}
