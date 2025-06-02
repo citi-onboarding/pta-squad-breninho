@@ -1,0 +1,283 @@
+[33mcommit fe8c098d50fab00ae4770ee5a9b5d86860f97cf9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeat/rotas-site[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Merge: 47d28f4 b875f29
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Fri May 30 08:41:46 2025 -0300
+
+    Merge pull request #11 from citi-onboarding/feat/pag-atendimento
+    
+    feat(pag-atendimento): add the service page
+
+[33mcommit b875f29f3c032938b1e1ef3c2633241e3ab7ee02[m[33m ([m[1;31morigin/feat/pag-atendimento[m[33m)[m
+Merge: 0392923 47d28f4
+Author: Gabriel Cássio <91679814+GabrielCassio@users.noreply.github.com>
+Date:   Thu May 29 18:28:14 2025 -0300
+
+    Merge branch 'main' into feat/pag-atendimento
+
+[33mcommit 0392923dc2efd173cbcd7c39d68edb9f4f133ddb[m[33m ([m[1;32mfeat/pag-atendimento[m[33m)[m
+Merge: 2c32954 4496637
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Thu May 29 18:17:30 2025 -0300
+
+    Merge branch 'main' into feat/pag-atendimento
+
+[33mcommit 47d28f491c52c58717da0a930ad2e16811b39d02[m
+Merge: 3b8aece 4609049
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Thu May 29 17:28:11 2025 -0300
+
+    Merge pull request #10 from citi-onboarding/feat/modal-nova-consulta
+    
+    feat:(modal-nova-consulta): Implementação do componente modal-nova-consulta
+
+[33mcommit 4609049d244a5416e62552a7b307791d45c365fb[m[33m ([m[1;31morigin/feat/modal-nova-consulta[m[33m)[m
+Author: Cássio <cdrl@cin.ufpe.br>
+Date:   Thu May 29 15:52:55 2025 -0300
+
+    fix(modal-nova-consulta): Correção de CSS para utilizar estilização tailwind
+
+[33mcommit f584cc82a85bc8ec68e9bdc2792c454b3b69533a[m
+Author: Cássio <cdrl@cin.ufpe.br>
+Date:   Thu May 29 15:40:01 2025 -0300
+
+    fix(modal-nova-consulta): Corrigido cor de fundo de caixa de seleção
+
+[33mcommit 2c32954e99ca494f04192dcdff545a716b147065[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Thu May 29 14:39:36 2025 -0300
+
+    feat(pag-atendimento): adds the service page and your pet cards
+
+[33mcommit bc7eaacc1e09ea06e587cc28e48fea3fa23c5759[m
+Merge: 6b489cd 3b8aece
+Author: Cássio <cdrl@cin.ufpe.br>
+Date:   Thu May 29 14:14:52 2025 -0300
+
+    Merge branch 'main' into feat/modal-nova-consulta
+
+[33mcommit ee80c32bc17a38f0a8fcc9e1e456630940039edb[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Thu May 29 14:00:03 2025 -0300
+
+    Revert "feat(pag-atendimento): adds the service page and your pet cards"
+    
+    This reverts commit 68b6db3dd4ba0af18dd62cd42380a54542ff2de7.
+
+[33mcommit 6b489cd260c75ff66e9e9fe2e851397ad73d59d5[m
+Author: Cássio <cdrl@cin.ufpe.br>
+Date:   Thu May 29 13:54:03 2025 -0300
+
+    feat(modal-nova-consulta): Adição de ícones do figma
+
+[33mcommit 3b8aece04df8bc2c677fe168e05051dedb5e5f8f[m
+Merge: 4496637 14dbac9
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Thu May 29 13:52:37 2025 -0300
+
+    Merge pull request #9 from citi-onboarding/fix/card-consulta
+    
+    fix(card-consulta): fix the color card change
+
+[33mcommit 68b6db3dd4ba0af18dd62cd42380a54542ff2de7[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Thu May 29 13:51:42 2025 -0300
+
+    feat(pag-atendimento): adds the service page and your pet cards
+
+[33mcommit ddf7ab8026491cbd22fc3774210ab681e7b5aa68[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Thu May 29 10:51:54 2025 -0300
+
+    feat(pag-atendimento): adds the 'page-atendimento' styled
+
+[33mcommit 166561cc853e4250b2313d9b6887473fa24a1438[m
+Author: Cássio <cdrl@cin.ufpe.br>
+Date:   Wed May 28 18:34:16 2025 -0300
+
+    feat(modal-nova-consulta):  Adicionado ícones e placeholders
+    
+    Added icons for both date and time inputs, along with placeholders
+
+[33mcommit 14dbac97a195aa78fd4608a7a5f16b9acda3885a[m[33m ([m[1;31morigin/fix/card-consulta[m[33m, [m[1;32mfix/card-consulta[m[33m)[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Wed May 28 14:31:33 2025 -0300
+
+    fix(card-consulta): fix the color card change
+
+[33mcommit 838e14e138c7a00a9b656bd29c1e5f2aa7fe0470[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Wed May 28 12:55:31 2025 -0300
+
+    feat(pag-atendiemnto): adds the service page with pet cards to consult
+
+[33mcommit 4496637b10ba23099ace2b2da76198e5bd2692ea[m
+Merge: e6ef79f 7d41714
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Wed May 28 09:58:28 2025 -0300
+
+    Merge pull request #8 from citi-onboarding/feat/card-consulta
+    
+    feat(card-consulta): adds the consult card of pets
+
+[33mcommit e6ef79f43d292b264869b3d8d675422bb19492a1[m
+Merge: 3880f92 f57e5ad
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Wed May 28 09:58:18 2025 -0300
+
+    Merge pull request #7 from citi-onboarding/feat/card-historico-de-consulta
+    
+    Feat(Card Histórico de Consulta)
+
+[33mcommit 7d41714b0bd79f6eb658a5209ab700f2d7ff27c7[m[33m ([m[1;31morigin/feat/card-consulta[m[33m)[m
+Author: Breno Augusto Ferreira <brenoafsa@gmail.com>
+Date:   Wed May 28 09:54:06 2025 -0300
+
+    refactor(card-consulta)
+    
+    adjusts the use of CardConsulta in page.tsx to use the right property and also fixes the use of the same color for two different status
+
+[33mcommit f57e5adb92a9dbaa4a861428f1c7cee7c15ea7d3[m[33m ([m[1;31morigin/feat/card-historico-de-consulta[m[33m)[m
+Author: Breno Augusto Ferreira <brenoafsa@gmail.com>
+Date:   Wed May 28 09:49:39 2025 -0300
+
+    refactor(card-historico-de-consulta)
+    
+    adjusts the names to fit the Camel Case pattern
+
+[33mcommit 0338d1b3811130719ae25ec1b89ddd5f00562f44[m[33m ([m[1;32mfeat/card-consulta[m[33m)[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Tue May 27 17:51:13 2025 -0300
+
+    feat(card-consulta): adds the consult card of pets
+
+[33mcommit 825bd9be73c13e99ff9a5f4473b14dae56a21628[m
+Author: Cássio <cdrl@cin.ufpe.br>
+Date:   Tue May 27 17:47:17 2025 -0300
+
+    feat(modal-nova-consulta): Criação do componente ModalNovaConsulta
+    
+    Initial component.
+
+[33mcommit b9ca1924f7b9f30df2c819d77897af2a149b3520[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Tue May 27 16:23:33 2025 -0300
+
+    feat(card-consulta): adds the consult card of pets
+
+[33mcommit d3873c55aa81d7291739eb47376109c6a41714a6[m
+Author: mmcm2-cin <mmcm2@cin.ufpe.br>
+Date:   Tue May 27 15:49:25 2025 -0300
+
+    (feat/card-historico-de-consulta): Criação do componente front-end referente ao card histórico de consulta
+
+[33mcommit a81bf431a9dd58cc445e2676acd4ccaa7cc5ab72[m
+Author: mmcm2-cin <mmcm2@cin.ufpe.br>
+Date:   Tue May 27 02:53:04 2025 -0300
+
+    (feat/card-historico-de-consulta): Criação do componente front-end referente ao card histórico de consulta
+
+[33mcommit 3880f924df6dff2b7bf24ebaf16151f7d6911c9d[m
+Merge: 746acdd 88ac223
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Mon May 26 13:56:50 2025 -0300
+
+    Merge pull request #6 from citi-onboarding/feat/top-bar
+    
+    Feat(Top Bar)
+
+[33mcommit 88ac22327d4f9dafd7648faad5579cde81e2a4ee[m[33m ([m[1;31morigin/feat/top-bar[m[33m)[m
+Author: mmcm2-cin <mmcm2@cin.ufpe.br>
+Date:   Mon May 26 13:42:22 2025 -0300
+
+    (feat/top-bar): Criação do componente FrontEnd da Top Bar para aplicação web.
+
+[33mcommit 746acdd2dfa5d644267324059b79142f9ed95666[m
+Merge: fc62dc1 119f2db
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Mon May 26 09:44:18 2025 -0300
+
+    Merge pull request #4 from citi-onboarding/revert-3-feat/top-bar
+    
+    Revert "Adicionado o componente da Top Bar"
+
+[33mcommit 119f2db2468db89683634077302278bd340130bb[m[33m ([m[1;31morigin/revert-3-feat/top-bar[m[33m)[m
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Mon May 26 09:39:38 2025 -0300
+
+    Revert "Adicionado o componente da Top Bar"
+
+[33mcommit fc62dc1c33de82c283cf0b4631dc809f70b2fd72[m
+Merge: e5292d6 3c1a8bb
+Author: Matheus Menezes <mmcm2@cin.ufpe.br>
+Date:   Fri May 23 18:15:38 2025 -0300
+
+    Merge pull request #3 from citi-onboarding/feat/top-bar
+    
+    Adicionado o componente da Top Bar
+
+[33mcommit 3c1a8bbbc223ae0cd76125214e2b3152a9664af4[m
+Author: mmcm2-cin <mmcm2@cin.ufpe.br>
+Date:   Fri May 23 18:12:14 2025 -0300
+
+    Adicionado o componente da Top Bar
+
+[33mcommit e5292d6fe128a390b3dbaa5b9ca537028aa44dec[m
+Merge: 408e903 dcf31c7
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Thu May 22 15:04:01 2025 -0300
+
+    Merge pull request #2 from citi-onboarding/feat/modal-fim-cadastro
+    
+    Feat(Modal end of registration)
+
+[33mcommit dcf31c74b835b2a769f17876c17951160ab9e7d3[m[33m ([m[1;31morigin/feat/modal-fim-cadastro[m[33m, [m[1;32mfeat/modal-fim-cadastro[m[33m)[m
+Merge: 52ed811 408e903
+Author: Gabriel Cássio <91679814+GabrielCassio@users.noreply.github.com>
+Date:   Thu May 22 14:59:56 2025 -0300
+
+    Merge branch 'main' into feat/modal-fim-cadastro
+
+[33mcommit 408e90349a6fbf37060053a14be1fa2ee27e69b5[m
+Merge: 5c60eea a4ac794
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Thu May 22 13:30:57 2025 -0300
+
+    Merge pull request #1 from citi-onboarding/feat/button-component
+    
+    Feat(button component)
+
+[33mcommit a4ac794cc855010b6c4ae4e7b841262acac1607e[m[33m ([m[1;31morigin/feat/button-component[m[33m)[m
+Author: Breno Augusto Ferreira <brenoafsa@gmail.com>
+Date:   Thu May 22 13:29:00 2025 -0300
+
+    fix(button-component)
+    
+    removes the new component's import from the main screen
+
+[33mcommit ce9f7eb4f91835ea3a79996f6b858bd016f70006[m
+Author: Breno Augusto Ferreira <brenoafsa@gmail.com>
+Date:   Thu May 22 13:27:19 2025 -0300
+
+    fix(button-component)
+    
+    removes the button from the main screen
+
+[33mcommit 52ed811b2665e90fbe77362f7a67c56da5bd166c[m
+Author: Gabriel Cássio <gabriel.cgc.contato@gmail.com>
+Date:   Thu May 22 13:20:00 2025 -0300
+
+    feat(modal-fim-cadastro): Adiciona componente FrontEnd do modal de fim de cadastro
+
+[33mcommit 3c53c402f0d81245405a724140e5b5c45c05bc3d[m
+Author: Breno Augusto Ferreira <brenoafsa@gmail.com>
+Date:   Mon May 19 14:30:39 2025 -0300
+
+    feat(button-component)
+    
+    creates the green button that will be used in both service and sign in's screen
+
+[33mcommit 5c60eea4051167b9817663ded592155d57a1593f[m
+Author: Breno Augusto Ferreira <155557831+brenoafsa@users.noreply.github.com>
+Date:   Sat May 17 11:21:02 2025 -0300
+
+    Initial commit

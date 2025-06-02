@@ -5,7 +5,7 @@ import Image from "next/image";
 import Topbar from "@/components/top-bar";
 import CardHistoricoConsulta from "@/components/card-historico-consulta";
 import { Cat, Cow, Dog, Horse, Pig, Sheep, TreatmentIcon, ArrowBack } from "@/assets";
-import { useRouter, useParams, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 // functions by search more infos by index
 interface configParams {
@@ -13,10 +13,10 @@ interface configParams {
 };
 
 const historicoConsultas = [
-    { date: "18/02", time: "13:00", typeOfConsultation: "Primeira Consulta", doctor: "Dr. José Carlos" },
-    { date: "18/02", time: "13:00", typeOfConsultation: "Primeira Consulta", doctor: "Dr. José Carlos" },
-    { date: "18/02", time: "13:00", typeOfConsultation: "Primeira Consulta", doctor: "Dr. José Carlos" },
-    { date: "18/02", time: "13:00", typeOfConsultation: "Primeira Consulta", doctor: "Dr. José Carlos" },
+    { id: 1, date: "18/02", time: "13:00", typeOfConsultation: "Primeira Consulta", doctor: "Dr. José Carlos" },
+    { id: 2, date: "18/02", time: "13:00", typeOfConsultation: "Primeira Consulta", doctor: "Dr. José Carlos" },
+    { id: 3, date: "18/02", time: "13:00", typeOfConsultation: "Primeira Consulta", doctor: "Dr. José Carlos" },
+    { id: 4, date: "18/02", time: "13:00", typeOfConsultation: "Primeira Consulta", doctor: "Dr. José Carlos" },
 ];
 
 const imagensAnimais = { Cat, Cow, Dog, Horse, Pig, Sheep };
@@ -112,10 +112,9 @@ const ImgAnimal = imagensAnimais[consultaExemplo.animal as keyof typeof imagensA
                         <div className="space-y-[24px]">
                             {historicoConsultas.map((consulta, index) => (
                                 <CardHistoricoConsulta
-                                    id = {params.id} 
                                     // Reference previous consultation pages
                                     // While it doesn't exist, return to same page
-                                    key={index}
+                                    key={consulta.id}
                                     date={consulta.date}
                                     time={consulta.time}
                                     typeOfConsultation={consulta.typeOfConsultation}
