@@ -14,7 +14,7 @@ const animalOptions = [
   { name: "Dog", icon: Dog },
 ];
 
-const CadastroPage = () => {
+const PageCadastro = () => {
   const [formData, setFormData] = useState({
     nomePaciente: "",
     nomeTutor: "",
@@ -239,4 +239,4 @@ const CadastroPage = () => {
   );
 };
 
-export default CadastroPage;
+export default PageCadastro;
