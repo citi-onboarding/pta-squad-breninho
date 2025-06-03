@@ -18,12 +18,14 @@ const animalOptions = [
   { name: "Dog", icon: Dog },
 ];
 
-// Esquema de validação com Zod
 const cadastroSchema = z.object({
   nomePaciente: z.string().min(1, "Nome do paciente é obrigatório."),
   nomeTutor: z.string().min(1, "Nome do tutor é obrigatório."),
   especie: z.string().min(1, "Espécie é obrigatória."),
-  idade: z.string().min(1, "Idade é obrigatória."),
+  idade: z.coerce.number({
+    required_error: "Idade é obrigatória.",
+    invalid_type_error: "Idade deve ser um número.",
+  }).int("A idade deve ser um número inteiro").min(0, "Idade não pode ser negativa"),
   tipoConsulta: z.string().min(1, "Tipo de consulta é obrigatório."),
   medicoResponsavel: z.string().min(1, "Médico responsável é obrigatório."),
   data: z.string().regex(/^\d{2}\/\d{2}\/\d{4}$/, "Data deve estar no formato dd/mm/aa"),
@@ -32,10 +34,11 @@ const cadastroSchema = z.object({
 }).transform((data) => {
   const [day, month, year] = data.data.split("/").map(Number);
   const [hours, minutes] = data.hora.split(":").map(Number);
-  const fullYear = 2000 + year; // assume século 21
+  const fullYear = 2000 + year;
   const dataHora = new Date(fullYear, month - 1, day, hours, minutes);
   return {
     ...data,
+    idade: Number(data.idade),
     dataHora,
   };
 });
@@ -70,16 +73,12 @@ const PageCadastro = () => {
     e.preventDefault();
     try {
       const result = cadastroSchema.parse(formData);
-      console.log("Dados convertidos para envio:", result);
       setFormErrors([]);
-
-      // Aqui você pode enviar result.dataHora ao backend no formato ISO
-      // Exemplo: result.dataHora.toISOString()
-
+      console.log("Dados válidos para o banco:", result);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        console.error("Erros de validação:", error.errors);
         setFormErrors(error.errors);
+        console.error("Erros de validação:", error.errors);
       }
     }
   };
