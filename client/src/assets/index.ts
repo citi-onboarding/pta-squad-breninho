@@ -34,4 +34,3 @@ import PlusCircled from "./PlusCircle.svg"
 // --
 
 export { LogoCITi, LogoCITiPet, BotaoClose, addIcon, finalTopBar, PetImage, Alarm, Cat, Cow, Dog, Horse, Pig, Sheep, TreatmentIcon, Arrow, ArrowBack, CalendarMonth, PlusCircled, alarmIcon, downArrowIcon, calendarIcon};
-
