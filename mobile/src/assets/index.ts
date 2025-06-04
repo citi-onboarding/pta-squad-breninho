@@ -12,5 +12,5 @@ import Pig from './pig.png';
 import Sheep from './sheep.png';
 
 export {
-  citi, HomeIndicator AlarmIcon, Cat, Cow, Dog, Horse, Pig, Sheep
+  citi, HomeIndicator, AlarmIcon, Cat, Cow, Dog, Horse, Pig, Sheep
 };
