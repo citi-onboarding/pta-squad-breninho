@@ -1,4 +1,10 @@
 import citi from './citi.svg';
+
+// Card Horario Mobile
+import morningIcon from './morning.png';
+import eveningIcon from './evening.png';
+import nightIcon from './night.png';
+
 // card-verde-mobile
 import HomeIndicator from './home-indicator.png';
 
@@ -12,5 +18,5 @@ import Pig from './pig.png';
 import Sheep from './sheep.png';
 
 export {
-  citi, HomeIndicator, AlarmIcon, Cat, Cow, Dog, Horse, Pig, Sheep
+  citi, HomeIndicator, morningIcon, eveningIcon, nightIcon, AlarmIcon, Cat, Cow, Dog, Horse, Pig, Sheep
 };
