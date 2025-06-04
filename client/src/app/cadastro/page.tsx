@@ -172,21 +172,18 @@ const PageCadastro = () => {
                 <label className="block font-bold mb-3">Tipo de consulta</label>
                 <div className="relative">
                   <select
-                    className={`w-full h-[50px] appearance-none border border-black rounded-lg px-4 py-2 pr-10 ${
-                      formData.tipoConsulta === "" ? "text-[#D9D9D9]" : "text-black"
-                    }`}
+                    className="w-full h-[50px] appearance-none border border-black rounded-lg px-4 py-2 pr-10"
                     name="tipoConsulta"
                     value={formData.tipoConsulta}
                     onChange={handleChange}
                   >
-                    <option value="" disabled hidden>
-                      Selecione aqui
-                    </option>
-                    <option value="squad">Primeira Consulta</option>
-                    <option value="breno">Retorno</option>
-                    <option value="melhor">Check-up</option>
-                    <option value="doPTA">Vacinação</option>
+                    <option value="" disabled hidden style={{ color: '#D9D9D9' }}>Selecione aqui</option>
+                    <option value="primeiraConsulta" style={{ color: 'black' }}>Primeira Consulta</option>
+                    <option value="retorno" style={{ color: 'black' }}>Retorno</option>
+                    <option value="checkUp" style={{ color: 'black' }}>Check-up</option>
+                    <option value="vacinacao" style={{ color: 'black' }}>Vacinação</option>
                   </select>
+
                   <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
                     <Image className="w-[24px] h-[24px]" src={downArrowIcon} alt="Seta para baixo" />
                   </div>
