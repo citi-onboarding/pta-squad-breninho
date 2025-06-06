@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import { Citi, Crud } from "../global";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 
 class AppointmentController implements Crud {
@@ -37,6 +40,7 @@ class AppointmentController implements Crud {
             return res.status(500).send({ message: "Erro ao buscar consultas" });
         }
     }
+
     getById = async (req: Request, res: Response) => {
         // Fetching a specific appointment from the database using the Citi instace and through the findById function
         const { id } = req.params;
