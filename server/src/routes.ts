@@ -13,6 +13,7 @@ routes.patch("/user/:id", userController.update);
 routes.post("/page-cadastro", appointmentController.create);
 
 routes.get("/page-atendimento", appointmentController.get);
+routes.post("/page-atendimento", appointmentController.create); // VOU ALTERAR NA HORA DE CONFIGURAR O MODAL DE NOVA CONSULTA (MATHEUS)
 
 routes.post("/page-detalhes-consulta", appointmentController.getById);
 routes.get("/page-detalhes-consulta", appointmentController.get);
