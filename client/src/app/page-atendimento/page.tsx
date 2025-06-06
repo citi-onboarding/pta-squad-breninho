@@ -243,14 +243,18 @@ const PageAtendimento = () => {
             <Button
               variant="link"
               onClick={() => setModoExibicao("historico")}
-              className={`flex items-center justify-center h-[42px] w-[92px] rounded-[8px] hover:no-underline focus:outline-none focus:ring-0 ${modoExibicao === "historico" ? "bg-white" : "bg-[#F0F0F0]"}`}
+              className={`flex items-center justify-center h-[42px] w-[92px] rounded-[8px] hover:no-underline focus:outline-none focus:ring-0 ${
+                modoExibicao === "historico" ? "bg-white" : "bg-[#F0F0F0]"
+              }`}
             >
               <p>Histórico</p>
             </Button>
             <Button
               variant="link"
               onClick={() => setModoExibicao("agendamento")}
-              className={`flex items-center justify-center h-[42px] w-[127px] rounded-[8px] hover:no-underline focus:outline-none focus:ring-0 ${modoExibicao === "agendamento" ? "bg-white" : "bg-[#F0F0F0]"}`}
+              className={`flex items-center justify-center h-[42px] w-[127px] rounded-[8px] hover:no-underline focus:outline-none focus:ring-0 ${
+                modoExibicao === "agendamento" ? "bg-white" : "bg-[#F0F0F0]"
+              }`}
             >
               <p>Agendamento</p>
             </Button>
@@ -301,7 +305,10 @@ const PageAtendimento = () => {
 
         {/* Botão nova consulta */}
         <div className="flex justify-end w-full mt-[153px]">
-          <Button className="h-[48px] w-[205px] bg-[#50E678] rounded-[24px] py-[12px] px-[32px] gap-[10px] shadow-[0_4px_4px_#0000001A] hover:bg-[#50E678]/80">
+          <Button
+            className="h-[48px] w-[205px] bg-[#50E678] rounded-[24px] py-[12px] px-[32px] gap-[10px] shadow-[0_4px_4px_#0000001A] hover:bg-[#50E678]/80"
+            onClick={() => router.push("/page-cadastro")}
+          >
             <Image src={PlusCircled} alt="Plus Circled Icon" />
             Nova Consulta
           </Button>
