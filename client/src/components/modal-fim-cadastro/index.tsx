@@ -5,17 +5,37 @@ import { LogoCITiPet } from "@/assets";
 import { Cross2Icon } from "@radix-ui/react-icons"
 
 function Modalcadastro(){
+    const [email, setEmail] = React.useState("");
+    const [error, setError] = React.useState("");
+
+    function isValidEmail(email: string) {
+        // Simple regex for email validation
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    const handleRegisterUser = async () => {
+        setError("");
+        if (!isValidEmail(email)) {
+            setError("Insira um e-mail válido.");
+            return;
+        }
+        await fetch("http://localhost:3001/user", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                firstName: email,
+                lastName: "",
+                age: 0
+            }),
+        });
+    };
+
     return(
-        // Container do Modal
         <div>
-            {/* Container das infos do card */}
             <div 
             className="flex flex-col h-[423px] w-[408px] bg-[#FFFFFF] rounded-[24px] p-[48px] gap-[29px] items-center font-[SF Pro Display]">
-                {/* Conteúdo do Modal de Fim de Cadastro flex flex-row justify-between*/}
                 <div className="w-full flex flex-row justify-between">
-                    {/* Image */}
                     <Image className="ml-[20%]" src={LogoCITiPet} alt="logo"/>
-                    {/* Botão Fechar */}
                     <Button className="h-[24px] w-[24px]" size="icon" variant="ghost">
                         <Cross2Icon></Cross2Icon>
                     </Button>
@@ -29,17 +49,27 @@ function Modalcadastro(){
                         <b>E-mail</b>
                     </p>
                     <div>
-                        {/* Input de email */}
-                        <input type="text" placeholder="Digite Aqui..." className="h-[50px] w-[312px] border border-[#101010] rounded-[8px] p-[16px]"/>
+                        <input
+                            type="text"
+                            placeholder="Digite Aqui..."
+                            className="h-[50px] w-[312px] border border-[#101010] rounded-[8px] p-[16px]"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                        />
                     </div>
                 </div>
-                {/* Botão de Envio */}
                 <Button 
-                className="h-[42px] w-[312px] bg-[#50E678] rounded-[24px] shadow-[0 4px 4px #0000001A]">Enviar</Button>
+                    className="h-[42px] w-[312px] bg-[#50E678] rounded-[24px] shadow-[0 4px 4px #0000001A]"
+                    onClick={handleRegisterUser}
+                >
+                    Enviar
+                </Button>
+                <div className="min-h-[0px] flex items-center justify-center">
+                    {error && <p className="text-red-500 text-sm">{error}</p>}
+                </div>
             </div>
         </div>
     )
 }
 
 export default Modalcadastro;
-
