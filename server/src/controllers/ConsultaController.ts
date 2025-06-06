@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
 import { Citi, Crud } from "../global";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 class AppointmentController implements Crud {
     constructor(private readonly citi = new Citi("Appointment")){}
@@ -23,10 +26,16 @@ class AppointmentController implements Crud {
         return res.status(httpStatus).send({ message });
     };
     get = async (req: Request, res: Response) => {
-        // Fetching all appointments from the database using the citi instance
-        const {httpStatus, values} = await this.citi.getAll();
+        try {
+            const values = await prisma.appointment.findMany({
+            include: { patient: true } // Aqui você inclui os dados do paciente
+            });
 
-        return res.status(httpStatus).send(values);
+            return res.status(200).send(values);
+        } catch (error) {
+            console.error("Erro ao buscar consultas com paciente:", error);
+            return res.status(500).send({ message: "Erro ao buscar consultas" });
+        }
     }
     getById = async (req: Request, res: Response) => {
         // Fetching a specific appointment from the database using the Citi instace and through the findById function
