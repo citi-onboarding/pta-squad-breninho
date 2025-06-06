@@ -71,12 +71,86 @@ const PageCadastro = () => {
     setFormData((prev) => ({ ...prev, especie }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const registerPatient = async (patientData: {
+    nomePaciente: string;
+    nomeTutor: string;
+    idade: string | number;
+    especie: string;
+  }) => {
+    const response = await fetch("http://localhost:3001/page-paciente", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: patientData.nomePaciente,
+        tutorName: patientData.nomeTutor,
+        age: Number(patientData.idade),
+        species: patientData.especie.toLowerCase(), // must match enum in backend
+      }),
+    });
+    return response.json();
+  };
+
+    // ...existing code...
+  
+  const registerAppointment = async (appointmentData: {
+    date: string;
+    time: string;
+    doctor: string;
+    appointmentType: string;
+    description: string;
+    patientId: number;
+  }) => {
+    const response = await fetch("http://localhost:3001/page-cadastro", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(appointmentData),
+    });
+    return response.json();
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const result = cadastroSchema.parse(formData);
       setFormErrors([]);
-      console.log("Dados válidos para o banco:", result);
+      // 1. Register patient
+      const patientRes = await registerPatient(formData);
+      if (!patientRes || !patientRes.message) {
+        alert("Erro ao cadastrar paciente.");
+        return;
+      }
+  
+      // 2. Get patientId (you may need to adjust this depending on your backend response)
+      // If your backend returns the patient object or id, use it. Otherwise, fetch the patient by name.
+      let patientId = patientRes.id;
+      if (!patientId) {
+        // fallback: fetch all patients and find by name (not ideal, but works if unique)
+        const allPatients = await fetch("http://localhost:3001/page-paciente").then(res => res.json());
+        const found = allPatients.find((p: any) => p.name === formData.nomePaciente && p.tutorName === formData.nomeTutor);
+        patientId = found?.id;
+      }
+      if (!patientId) {
+        alert("Paciente cadastrado, mas não foi possível obter o ID.");
+        return;
+      }
+  
+      // 3. Register appointment
+      const appointmentPayload = {
+        date: result.dataHora.toISOString(), // convert Date to ISO string
+        time: formData.hora,
+        doctor: formData.medicoResponsavel,
+        appointmentType: mapAppointmentType(formData.tipoConsulta),
+        description: formData.descricao,
+        patientId,
+      };
+      const appointmentRes = await registerAppointment(appointmentPayload);
+  
+      if (appointmentRes && appointmentRes.message) {
+        alert("Consulta cadastrada com sucesso!");
+        // Optionally, redirect or reset form here
+      } else {
+        alert("Erro ao cadastrar consulta.");
+      }
     } catch (error) {
       if (error instanceof z.ZodError) {
         setFormErrors(error.errors);
@@ -84,6 +158,22 @@ const PageCadastro = () => {
       }
     }
   };
+  
+  // Helper to map frontend select to backend enum
+  function mapAppointmentType(tipoConsulta: string) {
+    switch (tipoConsulta) {
+      case "primeiraConsulta":
+        return "firstAppointment";
+      case "retorno":
+        return "return";
+      case "checkUp":
+        return "checkup";
+      case "vacinacao":
+        return "vaccination";
+      default:
+        return "firstAppointment";
+    }
+  }
 
   return (
     <div className="min-h-screen bg-white">

@@ -14,11 +14,12 @@ routes.post("/page-cadastro", appointmentController.create);
 
 routes.get("/page-atendimento", appointmentController.get);
 
-routes.post("/page-detalhes-consulta", appointmentController.getById);
-routes.get("/page-detalhes-consulta", appointmentController.get);
-routes.get("/page-detalhes-consulta/:id", appointmentController.getById);
-routes.patch("/page-detalhes-consulta/:id", appointmentController.update);
-routes.delete("/page-detalhes-consulta/:id", appointmentController.delete);
+// Appointments
+routes.post("/page-consulta", appointmentController.create);
+routes.get("/page-consulta", appointmentController.get);
+routes.get("/page-consulta/:id", appointmentController.getById);
+routes.patch("/page-consulta/:id", appointmentController.update);
+routes.delete("/page-consulta/:id", appointmentController.delete);
 
 routes.post("/page-paciente", PatientController.create);
 routes.get("/page-paciente", PatientController.get);

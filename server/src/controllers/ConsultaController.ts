@@ -7,16 +7,16 @@ class AppointmentController implements Crud {
     create = async (req: Request, res: Response) => {
         // Destructuring the request body to get appointment details
         // This includes id, date, time, doctor, appointmentType, description, patientId, and patient
-        const {id, date, time, doctor, appointmentType, description, patientId, patient} = req.body;
+        const {date, time, doctor, appointmentType, description, patientId} = req.body;
         
-        const isValuesUndefined = this.citi.areValuesUndefined(id, date, time, doctor, appointmentType, description, patientId, patient);
+        const isValuesUndefined = this.citi.areValuesUndefined(date, time, doctor, appointmentType, description, patientId);
         // Validation of required fields
         if (isValuesUndefined) {
             // If any field is undefined, return a 400 status with an error message
             return res.status(400).send({ message: "All fields are required." });
         }
         // Creating a new appointment object with the provided details
-        const newAppointment = {id, date, time, doctor, appointmentType, description, patientId, patient};
+        const newAppointment = {date, time, doctor, appointmentType, description, patientId};
         // Inserting the new appointment into the database using the citi instance
         const {httpStatus, message} = await this.citi.insertIntoDatabase(newAppointment);
         
