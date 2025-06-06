@@ -2,9 +2,7 @@ import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import { Citi, Crud } from "../global";
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
 
 class AppointmentController implements Crud {
     constructor(private readonly citi = new Citi("Appointment")){}

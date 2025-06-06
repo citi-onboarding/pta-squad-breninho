@@ -21,6 +21,7 @@ const PageDetalhesConsulta = ({params}: configParams) => {
 // Instance of App Router
 const router = useRouter();
 
+// State to control the modal visibility
 const [showModal, setShowModal] = useState(false);
 
 // State to store consultation details and patients

@@ -9,6 +9,8 @@ import {
 } from "@/assets";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
+import ModalNovaConsulta from "@/components/modal-nova-consulta";
+
 
 const animalOptions = [
   { name: "Sheep", icon: Sheep },
@@ -45,6 +47,7 @@ const cadastroSchema = z.object({
 });
 
 const PageCadastro = () => {
+  const [showModal, setShowModal] = useState(false);
   const router = useRouter();
   const [formData, setFormData] = useState({
     nomePaciente: "",
@@ -356,6 +359,21 @@ const PageCadastro = () => {
           </form>
         </div>
       </div>
+      {/* Esta página já envia as informações necessárias tanto para consulta quanto para paciente*/}
+      {/* {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <ModalNovaConsulta 
+            onClose={() => setShowModal(false)}
+            onSubmit={async (dados) => {
+              await createAppointment({
+                  ...dados,
+                  patientId: patientCurrent.id
+              });
+              setShowModal(false);
+            }}
+          />
+        </div>
+      )} */}
     </div>
   );
 };
