@@ -2,6 +2,7 @@ import express from "express";
 import userController from "./controllers/UserController";
 import appointmentController from "./controllers/ConsultaController";
 import PatientController from "./controllers/PatientController";
+import MobileAppointmentController from "./controllers/ConsultaControllerMobile";
 
 const routes = express.Router();
 
@@ -26,5 +27,7 @@ routes.get("/page-paciente", PatientController.get);
 routes.get("/page-paciente/:id", PatientController.getById);
 routes.patch("/page-paciente/:id", PatientController.update);
 routes.delete("/page-paciente/:id", PatientController.delete);
+
+routes.get("/mobile/agenda", MobileAppointmentController.getNextByPeriod);
 
 export default routes;
