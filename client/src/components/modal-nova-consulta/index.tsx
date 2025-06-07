@@ -55,19 +55,27 @@ return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div className="flex flex-col h-[530px] w-[824px] bg-white rounded-[24px] p-[48px] gap-[12px]">
         {/* Header: logo + close button */}
-        <div className="w-full flex flex-row justify-between items-center mb-[4px]">
-            <Image src={LogoCITiPet} alt="Logo CITI Pet" />
+        <div className="w-full relative flex items-center mb-[4px] pb-[32px]">
+            {/* Logo centralizado */}
+            <Image
+                src={LogoCITiPet}
+                alt="Logo CITI Pet"
+                className="absolute left-1/2 transform -translate-x-1/2"
+            />
+
+            {/* Botão de fechar alinhado à direita */}
             <Button
-            className="h-[24px] w-[24px] p-0"
-            size="icon"
-            variant="ghost"
-            onClick={onClose}
+                className="h-[24px] w-[24px] p-0 ml-auto"
+                size="icon"
+                variant="ghost"
+                onClick={onClose}
             >
-            <Image src={BotaoClose} alt="Ícone de fechar" />
+                <Image src={BotaoClose} alt="Ícone de fechar" />
             </Button>
         </div>
 
-        <div className="flex flex-col items-center mb-[4px]">
+
+        <div className="flex flex-col items-center mb-[4px]]">
             <p>
             <b>O pet já está cadastrado no sistema!</b> Preencha os dados da{" "}
             <b>consulta</b>

@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 import { Appointment, getAppointment, getAppointmentById, createAppointment, Patient, getPatient, getPatientById, createPatient } from "@/services/Appointments";
 
 
-// functions by search more infos by index
 interface configParams {
     params: {id: number};
 };
@@ -18,36 +17,15 @@ interface configParams {
 const imagensAnimais = { Cat, Cow, Dog, Horse, Pig, Sheep };
 
 const PageDetalhesConsulta = ({params}: configParams) => {
-// Instance of App Router
+
 const router = useRouter();
 
-// State to control the modal visibility
 const [showModal, setShowModal] = useState(false);
 
-// State to store consultation details and patients
 const [consultaCurrent, setConsultaCurrent] = useState<Appointment | null>(null);
 const [patientCurrent, setPatientCurrent] = useState<Patient | null>(null);
-// State to store all consultations and patients
+
 const [consulta, setConsulta] = useState<Appointment[]>([]);
-//------------
-
-// Example data for creating a new appointment and patient
-const appointmentData: Omit<Appointment, "id" | "patient"> = {
-    date: "2025-06-04T14:00:00.000Z",
-    time: "14:00",
-    doctor: "Dr. House",
-    appointmentType: "checkup",
-    description: "Rotina",
-    patientId: 1
-}
-
-const patientData: Omit<Patient, "id"> = {
-    name: "Luna",
-    tutorName: "Lucas Gomes",
-    age: 5,
-    species: "cat"
-}
-// ---------------------------
 
 
 useEffect(() => {
@@ -105,6 +83,16 @@ const traduzirEspecie = (especie: string): string => {
     }
 }
 
+const traduzirStatus = (typeOfConsultation: string): string => {
+    switch (typeOfConsultation) {
+        case "firstAppointment": return "Primeira Consulta";
+        case "return": return "Retorno";
+        case "checkup": return "Check-up";
+        case "vaccination": return "Vacinação";
+        default: return "";
+    }
+}
+
 const ImgAnimal = patientCurrent 
 ? imagensAnimais[traduzirEspecie(patientCurrent.species) as keyof typeof imagensAnimais]
 :imagensAnimais["Cat" as keyof typeof imagensAnimais];
@@ -140,7 +128,7 @@ const formatarDataExibicao = (data: string) => {
 
                             <div className="flex gap-6 items-start mb-6">
                                 <Image
-                                    className="w-[299px] h-[295px] rounded-2xl object-cover"
+                                    className="w-[295px] h-[299px] rounded-2xl object-cover"
                                     src={ImgAnimal}
                                     alt={consultaCurrent?.patient || "Carregando..."}
                                 />
@@ -173,11 +161,14 @@ const formatarDataExibicao = (data: string) => {
                             <div className="mb-[40px]">
                                 <div className="flex items-center gap-[24px] text-[16px]">
                                     <span className="font-bold">Tipo de consulta:</span>
-                                    <span className="flex flex-row justify-center items-center w-[101px] h-[30px] bg-[#AAE1FF] text-[#292929] px-3 py-1 rounded text-[16px]">
-                                        {consultaCurrent?.appointmentType || "Carregando..."}
+                                    <span className="inline-flex justify-center items-center bg-[#AAE1FF] text-[#292929] px-3 py-1 rounded text-[16px]">
+                                    {consultaCurrent?.appointmentType
+                                        ? traduzirStatus(consultaCurrent.appointmentType)
+                                        : "Carregando..."}
                                     </span>
                                 </div>
                             </div>
+
 
                             {/* Agendamento */}
                             <div className="border border-[#D9D9D9] rounded-3xl p-6 w-[624px] shadow-sm">
@@ -204,9 +195,10 @@ const formatarDataExibicao = (data: string) => {
                                     {attemptions.map((consulta: Appointment) => (
                                         <CardHistoricoConsulta
                                             key={consulta.id}
+                                            id = {consulta.id}
                                             date={formatarDataExibicao(consulta.date)}
                                             time={consulta.time}
-                                            typeOfConsultation={consulta.appointmentType}
+                                            typeOfConsultation={traduzirStatus(consulta.appointmentType)}
                                             doctor={consulta.doctor}
                                         />
                                     ))}
@@ -220,12 +212,19 @@ const formatarDataExibicao = (data: string) => {
                         <ModalNovaConsulta
                             onClose={() => setShowModal(false)}
                             onSubmit={async (dados) => {
-                                await createAppointment({
-                                    ...dados,
-                                    patientId: patientCurrent.id
-                                });
-                                setShowModal(false);
-                                // Atualize a lista de consultas se necessário
+                                try {
+                                    await createAppointment({
+                                        ...dados,
+                                        patientId: patientCurrent.id
+                                    });
+                                    setShowModal(false);
+                                    // Atualize a lista de consultas após criar uma nova
+                                    const data = await getAppointment();
+                                    setConsulta(data);
+                                } catch (error) {
+                                    console.error("Erro ao criar consulta:", error);
+                                    alert("Erro ao criar consulta. Tente novamente.");
+                                }
                             }}
                         />
                     </div>

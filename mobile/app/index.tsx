@@ -1,4 +1,3 @@
-// src/components/AgendaScreen.tsx
 import React, { useEffect, useState } from "react";
 import {
   View,
@@ -26,37 +25,74 @@ interface Appointment {
   status: string;
 }
 
-interface ConsultaParaCard {
+interface ConsultaCard {
   animal: string;
   date: string;
   time: string;
   nameOwner: string;
+  namePet: string;
   phoneOwner: string;
   status: string;
+  nameDoctor: string;
 }
 
-const mapAppointmentToCard = (appt: Appointment): ConsultaParaCard => ({
-  animal: appt.animal,
-  date: appt.date,
+function traduzirEspecie(species: string): "Dog" | "Cat" | "Pig" | "Horse" | "Sheep" | "Cow" {
+  switch (species) {
+    case "dog": return "Dog";
+    case "cat": return "Cat";
+    case "pig": return "Pig";
+    case "horse": return "Horse";
+    case "sheep": return "Sheep";
+    case "cow": return "Cow";
+    default: return "Dog";
+  }
+}
+
+function traduzirStatus(tipo: string): "Primeira Consulta" | "Check-up" | "Retorno" | "Vacinação" | "" {
+  switch (tipo) {
+    case "firstAppointment": return "Primeira Consulta";
+    case "checkup": return "Check-up";
+    case "return": return "Retorno";
+    case "vaccination": return "Vacinação";
+    default: return "";
+  }
+}
+
+function formatarData(dateStr: string): string {
+  const date = new Date(dateStr);
+  const dia = String(date.getDate()).padStart(2, "0");
+  const mes = String(date.getMonth() + 1).padStart(2, "0");
+  return `${dia}/${mes}`;
+}
+
+const mapAppointmentToCard = (appt: any): ConsultaCard => ({
+  animal: traduzirEspecie(appt.patient?.species),
+  date: formatarData(appt.date),
   time: appt.time,
-  nameOwner: appt.nameOwner,
-  phoneOwner: appt.phoneOwner,
-  status: appt.status,
+  nameOwner: appt.patient?.tutorName || "",
+  namePet: appt.patient?.name || "",
+  phoneOwner: "", 
+  status: traduzirStatus(appt.appointmentType),
+  nameDoctor: appt.doctor || "", 
 });
 
 export default function AgendaScreen() {
-  const [consultas, setConsultas] = useState<ConsultaParaCard[]>([]);
+  const [consultas, setConsultas] = useState<ConsultaCard[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedPeriod, setSelectedPeriod] = useState<Period>("morning");
 
-  const fetchConsultas = async () => {
+  useEffect(() => {
+    fetchConsultas();
+  }, [selectedPeriod]);
+
+   const fetchConsultas = async () => {
     setLoading(true);
     setError(null);
     try {
-      // TODO: chamada real
-      const mockAppointments: Appointment[] = [];
-      setConsultas(mockAppointments.map(mapAppointmentToCard));
+      const response = await fetch('http://192.168.0.195:3001/mobile/agenda?period=' + selectedPeriod); //ATUALIZE COM O IP DA SUA MÁQUINA
+      const data = await response.json();
+      setConsultas(data.map(mapAppointmentToCard));
     } catch {
       setError("Erro ao buscar consultas.");
     } finally {
@@ -64,12 +100,21 @@ export default function AgendaScreen() {
     }
   };
 
-  const filtrarPeriodo = (arr: ConsultaParaCard[], p: Period) =>
-    !p ? arr : arr.filter(() => true); // TODO: lógica real
-
-  useEffect(() => {
-    fetchConsultas();
-  }, []);
+  const filtrarPeriodo = (arr: ConsultaCard[], p: Period) => {
+  if (!p) return arr;
+  // Converte hora para minutos para facilitar a comparação
+  const toMinutes = (time: string) => {
+    const [h, m] = time.split(":").map(Number);
+    return h * 60 + m;
+  };
+  return arr.filter((c) => {
+    const minutos = toMinutes(c.time);
+    if (p === "morning") return minutos >= 360 && minutos < 720;    // 06:00 - 12:00
+    if (p === "afternoon") return minutos >= 720 && minutos < 1080; // 12:00 - 18:00
+    if (p === "night") return minutos >= 1080 && minutos < 1440;    // 18:00 - 24:00
+    return true;
+  });
+};;
 
   const consultasFiltradas = filtrarPeriodo(consultas, selectedPeriod);
   const allowedStatus = [
@@ -154,8 +199,8 @@ export default function AgendaScreen() {
                     ? (c.animal as any)
                     : "Dog")
                 }
-                namePet={c.animal}
-                nameDoctor={""}
+                namePet={c.namePet}
+                nameDoctor={c.nameDoctor}
                 date={c.date}
                 time={c.time}
                 nameOwner={c.nameOwner}
