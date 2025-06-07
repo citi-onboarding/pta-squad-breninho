@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Citi, Crud } from "../global";
 
+
 class PatientController implements Crud {
   constructor(private readonly citi = new Citi("Patient")) {}
 
