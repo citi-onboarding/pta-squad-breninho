@@ -7,13 +7,14 @@ import { useRouter } from "next/navigation";
 import CardConsulta from "../card-consulta";
 
 interface tiposInformacoes {
+    id: number;
     key: number;
     date: string;
     time: string;
     typeOfConsultation: string;
     doctor: string;
 }
-const CardHistoricoConsulta: React.FC <tiposInformacoes> = ({key, date, time, typeOfConsultation, doctor}) => {
+const CardHistoricoConsulta: React.FC <tiposInformacoes> = ({id, date, time, typeOfConsultation, doctor}) => {
     const router = useRouter();
     return (
     <div className="flex items-center justify-between bg-[#F0F0F0] rounded-xl w-[510px] h-[82px] gap-[61px] py-[16px] px-[24px] text-[14px]">
@@ -23,7 +24,7 @@ const CardHistoricoConsulta: React.FC <tiposInformacoes> = ({key, date, time, ty
         </div>
         <div className="font-bold w-[115px] whitespace-nowrap">{typeOfConsultation} </div>
         <div className="w-[90px] whitespace-nowrap">{doctor}</div>
-        <button className="w-[24px] h-[24px] flex items-center justify-center" onClick={() => router.push(`/page-detalhes-consulta/${key}`)}>
+        <button className="w-[24px] h-[24px] flex items-center justify-center" onClick={() => router.push(`/page-detalhes-consulta/${id}`)}>
         <Image src={Arrow} alt="Seta"/>
         </button>
     </div>

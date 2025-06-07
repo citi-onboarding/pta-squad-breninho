@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Citi, Crud } from "../global";
 
+
 class PatientController implements Crud {
   constructor(private readonly citi = new Citi("Patient")) {}
 
@@ -8,6 +9,10 @@ class PatientController implements Crud {
   create = async (req: Request, res: Response) => {
     const { name, tutorName, age, species } = req.body;
 
+    const validSpecies = ["cat", "dog", "pig", "horse", "sheep", "cow"];
+    if (!validSpecies.includes(species)) {
+      return res.status(400).send({ message: "Espécie inválida." });
+}
     const isAnyUndefined = this.citi.areValuesUndefined(
       name,
       tutorName,

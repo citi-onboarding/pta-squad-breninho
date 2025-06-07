@@ -1,22 +1,22 @@
-import citi from './citi.svg';
+// SVGs (se você tiver configuração para SVGs no RN, senão converta pra PNG)
+export const citi = require("./citi.svg");
 
 // Card Horario Mobile
-import morningIcon from './morning.png';
-import eveningIcon from './evening.png';
-import nightIcon from './night.png';
+export const morningIcon = require("./morning.png");
+export const eveningIcon = require("./evening.png");
+export const nightIcon = require("./night.png");
 
 // card-verde-mobile
-import HomeIndicator from './home-indicator.png';
+export const HomeIndicator = require("./home-indicator.png");
 
 // card-consulta-mobile
-import AlarmIcon from './alarm-icon.png';
-import Cat from './cat.png';
-import Cow from './cow.png';
-import Dog from './dog.png';
-import Horse from './horse.png';
-import Pig from './pig.png';
-import Sheep from './sheep.png';
+export const AlarmIcon = require("./alarm-icon.png");
+export const Cat = require("./cat.png");
+export const Cow = require("./cow.png");
+export const Dog = require("./dog.png");
+export const Horse = require("./horse.png");
+export const Pig = require("./pig.png");
+export const Sheep = require("./sheep.png");
 
-export {
-  citi, HomeIndicator, morningIcon, eveningIcon, nightIcon, AlarmIcon, Cat, Cow, Dog, Horse, Pig, Sheep
-};
+// logo do topo
+export const logoCiti = require("./citiLogo.png");

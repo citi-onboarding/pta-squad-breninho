@@ -71,7 +71,7 @@ const PageAtendimento = () => {
   useEffect(() => {
     const fetchConsultas = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/page-atendimento');
+        const response = await axios.get('http://localhost:3001/page-consulta');
         const data = response.data;
         const agora = new Date();
 
