@@ -103,7 +103,7 @@ const PageCadastro = () => {
     description: string;
     patientId: number;
   }) => {
-    const response = await fetch("http://localhost:3001/page-cadastro", {
+    const response = await fetch("http://localhost:3001/page-consulta", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(appointmentData),
